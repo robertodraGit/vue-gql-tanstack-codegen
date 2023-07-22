@@ -1,10 +1,29 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 + TypeScript + Vite + GraphQL + Tanstack Query + Codegen
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This template should help get you started developing with Vue 3, TypeScript, GraphQL, Tanstack Query, Codegen in Vite. 
+The template uses Vue 3 `<script setup>` SFCs.
+
+## Why?
+
+I think this development pattern is easier, more readable and more intuitive than Vue-Apollo.
+If you are a React developer it is much more likely that you have already used Tanstack Query, so given these reasons I set up this template.
+And I also found some problems combining Apollo and Codegen.
+
+## How to run the project
+
+- Recommended Node 18.16.x
+- `yarn`
+- `yarn codegen-watch` (run it on a second terminal if you want to always run the codegen watcher)
+- `yarn dev`
 
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+## shim-vue.d.ts
+
+This file exists because of the default method for import of Vue Components. 
+Without this file you will always get an error for absolute/relative import paths.
 
 ## Type Support For `.vue` Imports in TS
 
