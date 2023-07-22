@@ -1,0 +1,32 @@
+{
+  "name": "my-vue-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "codegen-watch": "graphql-codegen --watch"
+  },
+  "dependencies": {
+    "vue": "^3.3.4",
+    "sass": "^1.62.1",
+    "@tanstack/vue-query": "^4.29.25",
+    "graphql": "^16.7.1",
+    "graphql-tag": "^2.12.6"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/client-preset": "^4.0.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.5",
+    "vue-tsc": "^1.8.5",
+    "@vue/tsconfig": "^0.4.0",
+    "@tsconfig/node18": "^2.0.1",
+    "@types/node": "^18.16.8",
+    "@vitejs/plugin-vue-jsx": "^3.0.1"
+  }
+}
