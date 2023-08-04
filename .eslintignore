@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+public
+README.md
+
+#vs-code extensions
+#idea extensions
+.idea/*
+.vscode/*

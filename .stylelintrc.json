@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "stylelint-config-recommended-vue",
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "scss/at-rule-conditional-no-parentheses": null,
+    "scss/dollar-variable-empty-line-before": null,
+    "scss/operator-no-unspaced": null,
+    "comment-empty-line-before": null,
+    "comment-whitespace-inside": null,
+    "scss/double-slash-comment-whitespace-inside": null,
+    "rule-empty-line-before": null,
+    "at-rule-empty-line-before": null,
+    "selector-no-vendor-prefix": null,
+    "property-no-vendor-prefix": null,
+    "selector-class-pattern": null,
+    "declaration-empty-line-before": null,
+    "selector-pseudo-class-no-unknown": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "function",
+          "if",
+          "else",
+          "each",
+          "include",
+          "include-media",
+          "use",
+          "return",
+          "mixin",
+          "debug",
+          "for"
+        ]
+      }
+    ]
+  }
+}

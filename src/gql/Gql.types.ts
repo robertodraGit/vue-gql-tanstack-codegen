@@ -1,7 +1,6 @@
-/* eslint-disable */
-import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
+// @ts-nocheck
+export type Maybe<T> = T;
+export type InputMaybe<T> = T;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
@@ -14,7 +13,6 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  /** The `Upload` scalar type represents a file upload. */
   Upload: { input: any; output: any; }
 };
 
@@ -24,7 +22,6 @@ export enum CacheControlScope {
 }
 
 export type Character = {
-  __typename?: 'Character';
   /** Time at which the character was created in the database. */
   created?: Maybe<Scalars['String']['output']>;
   /** Episodes in which this character appeared. */
@@ -53,13 +50,11 @@ export type Character = {
 };
 
 export type Characters = {
-  __typename?: 'Characters';
   info?: Maybe<Info>;
   results?: Maybe<Array<Maybe<Character>>>;
 };
 
 export type Episode = {
-  __typename?: 'Episode';
   /** The air date of the episode. */
   air_date?: Maybe<Scalars['String']['output']>;
   /** List of characters who have been seen in the episode. */
@@ -75,7 +70,6 @@ export type Episode = {
 };
 
 export type Episodes = {
-  __typename?: 'Episodes';
   info?: Maybe<Info>;
   results?: Maybe<Array<Maybe<Episode>>>;
 };
@@ -100,7 +94,6 @@ export type FilterLocation = {
 };
 
 export type Info = {
-  __typename?: 'Info';
   /** The length of the response. */
   count?: Maybe<Scalars['Int']['output']>;
   /** Number of the next page (if it exists) */
@@ -112,7 +105,6 @@ export type Info = {
 };
 
 export type Location = {
-  __typename?: 'Location';
   /** Time at which the location was created in the database. */
   created?: Maybe<Scalars['String']['output']>;
   /** The dimension in which the location is located. */
@@ -128,13 +120,11 @@ export type Location = {
 };
 
 export type Locations = {
-  __typename?: 'Locations';
   info?: Maybe<Info>;
   results?: Maybe<Array<Maybe<Location>>>;
 };
 
 export type Query = {
-  __typename?: 'Query';
   /** Get a specific character by ID */
   character?: Maybe<Character>;
   /** Get the list of all characters */
@@ -203,13 +193,14 @@ export type QueryLocationsByIdsArgs = {
   ids: Array<Scalars['ID']['input']>;
 };
 
+export type CharacterFragment = { id?: string, name?: string, location?: { residents: Array<{ id?: string, name?: string, status?: string, species?: string, type?: string, gender?: string, image?: string }> } };
+
+export type InfoFragment = { count?: number, pages?: number, next?: number, prev?: number };
+
 export type GetCharactersQueryVariables = Exact<{
   page?: InputMaybe<Scalars['Int']['input']>;
   filter?: InputMaybe<FilterCharacter>;
 }>;
 
 
-export type GetCharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', results?: Array<{ __typename?: 'Character', id?: string | null, name?: string | null, location?: { __typename?: 'Location', residents: Array<{ __typename?: 'Character', id?: string | null, name?: string | null, status?: string | null, species?: string | null, type?: string | null, gender?: string | null, image?: string | null } | null> } | null } | null> | null, info?: { __typename?: 'Info', count?: number | null, pages?: number | null, next?: number | null, prev?: number | null } | null } | null };
-
-
-export const GetCharactersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getCharacters"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"page"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"filter"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"FilterCharacter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"characters"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"page"},"value":{"kind":"Variable","name":{"kind":"Name","value":"page"}}},{"kind":"Argument","name":{"kind":"Name","value":"filter"},"value":{"kind":"Variable","name":{"kind":"Name","value":"filter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"results"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"location"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"residents"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"species"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"gender"}},{"kind":"Field","name":{"kind":"Name","value":"image"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"info"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"count"}},{"kind":"Field","name":{"kind":"Name","value":"pages"}},{"kind":"Field","name":{"kind":"Name","value":"next"}},{"kind":"Field","name":{"kind":"Name","value":"prev"}}]}}]}}]}}]} as unknown as DocumentNode<GetCharactersQuery, GetCharactersQueryVariables>;
+export type GetCharactersQuery = { characters?: { results?: Array<{ id?: string, name?: string, location?: { residents: Array<{ id?: string, name?: string, status?: string, species?: string, type?: string, gender?: string, image?: string }> } }>, info?: { count?: number, pages?: number, next?: number, prev?: number } } };

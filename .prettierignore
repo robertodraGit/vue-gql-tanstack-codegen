@@ -1,0 +1,17 @@
+node_modules
+package-lock.json
+public
+README.md
+.eslintrc.cjs
+.stylelintrc.json
+vite.config.ts
+tsconfig.json
+index.html
+.prettierrc.json
+package.json
+tsconfig.app.json
+tsconfig.node.json
+#vs-code extensions
+#idea extensions
+.idea/*
+.vscode/*

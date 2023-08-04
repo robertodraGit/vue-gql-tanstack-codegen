@@ -7,8 +7,19 @@ const config: CodegenConfig = {
     ignoreNoDocuments: true,
     watch: true,
     generates: {
-        './src/gql/': {
-            preset: 'client',
+        './src/gql/Gql.types.ts': {
+            plugins: [
+                'typescript',
+                'typescript-operations',
+                {
+                    add: {
+                        placement: 'prepend',
+                        content: [
+                            '// @ts-nocheck',
+                        ],
+                    },
+                },
+            ],
             config: {
                 useTypeImports: true,
             },
@@ -16,6 +27,8 @@ const config: CodegenConfig = {
     },
     config: {
         fetcher: 'graphql-request',
+        skipTypename: true,
+        maybeValue: 'T',
     },
 };
 
